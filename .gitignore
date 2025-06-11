@@ -1,0 +1,28 @@
+# Ignorar archivos del proyecto Angular
+/payment-system-frontend/node_modules/
+/payment-system-frontend/dist/
+/payment-system-frontend/.angular/
+/payment-system-frontend/.env
+/payment-system-frontend/.env.* 
+/payment-system-frontend/.DS_Store
+
+# Ignorar archivos del proyecto Spring Boot (Java/Maven o Gradle)
+# Si usas Maven:
+payment-system-backend/target/
+
+# Archivos comunes de entorno y sistema
+*.log
+*.class
+*.iml
+*.ipr
+*.iws
+/.idea/
+/.vscode/
+.DS_Store
+.env
+.env.*
+
+# Ignorar archivos del sistema operativo
+Thumbs.db
+
+*.vscode
