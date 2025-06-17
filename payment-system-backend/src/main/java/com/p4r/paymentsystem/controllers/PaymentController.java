@@ -47,7 +47,7 @@ public class PaymentController {
         return studentRepository.findByCode(code);
     }
 
-    @GetMapping("/studentsByProgram}")
+    @GetMapping("/studentsByProgram")
     public List<Student> listStudentByProgram(@RequestParam String programId) {
         return studentRepository.findByProgramId(programId);
     }
