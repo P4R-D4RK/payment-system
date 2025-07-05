@@ -64,9 +64,9 @@ public class PaymentController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/students/{code}/pagos")
-    public List<Payment> listPaymentsByStudentCode(@PathVariable String studentCode) {
-        return paymentRepository.findByStudentCode(studentCode);
+    @GetMapping("/students/{code}/payments")
+    public List<Payment> listPaymentsByStudentCode(@PathVariable String code) {
+        return paymentRepository.findByStudentCode(code);
     }
 
     @GetMapping("/paymentByStatus")

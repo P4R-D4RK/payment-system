@@ -1,0 +1,58 @@
+<mat-toolbar class="warn">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="drawer.toggle()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <button mat-button [matMenuTriggerFor]="importMenu" style="margin-right: 8px">
+    <mat-icon>keyboard_arrow_down</mat-icon>
+    Import
+  </button>
+
+  <mat-menu #importMenu="matMenu">
+    <button mat-menu-item>Upload Students</button>
+    <button mat-menu-item>Upload Payments</button>
+  </mat-menu>
+
+  <button mat-flat-button color="accent">Exit</button>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" #drawer opened class="sideNav">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <button mat-button class="w-100">
+          <mat-icon>school</mat-icon>
+          Students
+        </button>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <button mat-button class="w-100">
+          <mat-icon>payments</mat-icon>
+          Payments
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content> </mat-drawer-content>
+</mat-drawer-container>
