@@ -21,8 +21,24 @@ import { PaymentsComponent } from './payments/payments.component';
 import { StudentsComponent } from './students/students.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
-  declarations: [AppComponent, AdminTemplateComponent, HomeComponent, ProfileComponent, LoadStudentsComponent, LoadPaymentsComponent, LoginComponent, PaymentsComponent, StudentsComponent, DashboardComponent],
+  declarations: [
+    AppComponent,
+    AdminTemplateComponent,
+    HomeComponent,
+    ProfileComponent,
+    LoadStudentsComponent,
+    LoadPaymentsComponent,
+    LoginComponent,
+    PaymentsComponent,
+    StudentsComponent,
+    DashboardComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -32,6 +48,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
+    MatCardModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

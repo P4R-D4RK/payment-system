@@ -26,3 +26,24 @@ body {
 .mat-toolbar {
   background: rgb(34, 34, 34) !important;
 }
+
+.container {
+  padding: 2rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.me-1 {
+  margin-right: 1rem;
+}
+
+.mat-mdc-card {
+  background-color: #282828 !important;
+  padding: 1.25rem;
+}
