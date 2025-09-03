@@ -21,41 +21,58 @@
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with share icon"
-    routerLink="/profile"
+    routerLink="/admin/profile"
   >
     <mat-icon>account_circle</mat-icon>
   </button>
 
-  <button mat-button [matMenuTriggerFor]="importMenu" style="margin-right: 8px">
+  <button
+    mat-button
+    [matMenuTriggerFor]="importMenu"
+    style="margin-right: 8px"
+    *ngIf="validateAdmin"
+  >
     <mat-icon>keyboard_arrow_down</mat-icon>
     Import
   </button>
 
   <mat-menu #importMenu="matMenu">
-    <button mat-menu-item routerLink="/load-students">Upload Students</button>
-    <button mat-menu-item routerLink="/load-payments">Upload Payments</button>
+    <button mat-menu-item routerLink="/admin/load-students">
+      Upload Students
+    </button>
+    <button mat-menu-item routerLink="/admin/load-payments">
+      Upload Payments
+    </button>
   </mat-menu>
 
-  <button mat-flat-button color="accent" routerLink="/login">Exit</button>
+  <button
+    mat-flat-button
+    color="accent"
+    *ngIf="authService.getIsAuthenticated()"
+    class="me-1"
+  >
+    {{ authService.getUsername() }}
+  </button>
+  <button mat-flat-button color="accent" (click)="logout()">Exit</button>
 </mat-toolbar>
 
 <mat-drawer-container class="example-container">
   <mat-drawer mode="side" #drawer opened class="sideNav">
     <mat-list role="list">
       <mat-list-item role="listitem">
-        <button mat-button class="w-100" routerLink="/dashboard">
+        <button mat-button class="w-100" routerLink="/admin/dashboard">
           <mat-icon>dashboard</mat-icon>
           Dashboard
         </button>
       </mat-list-item>
       <mat-list-item role="listitem">
-        <button mat-button class="w-100" routerLink="/students">
+        <button mat-button class="w-100" routerLink="/admin/students">
           <mat-icon>school</mat-icon>
           Students
         </button>
       </mat-list-item>
       <mat-list-item role="listitem">
-        <button mat-button class="w-100" routerLink="/payments">
+        <button mat-button class="w-100" routerLink="/admin/payments">
           <mat-icon>payment</mat-icon>
           Payments
         </button>

@@ -2,6 +2,8 @@ import { Component, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,11 @@ export class LoginComponent {
 
   hide = signal(true);
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -69,6 +75,9 @@ export class LoginComponent {
     if (this.form.invalid) return;
 
     const { email, password } = this.form.getRawValue();
-    alert(`Email: ${email}, Password: ${password}`);
+    // alert(`Email: ${email}, Password: ${password}`);
+    const resp = this.authService.login(email);
+
+    if (resp) this.router.navigateByUrl('/admin');
   }
 }
